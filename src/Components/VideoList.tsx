@@ -3,9 +3,7 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 // import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Skeleton from "@mui/material/Skeleton";
 
@@ -74,17 +72,19 @@ function Media(props: MediaProps) {
   );
 }
 
-function VideoList({ videoList }) {
+function VideoList(props) {
+  const { videoList, handleClick } = props;
   console.log(videoList);
 
   return videoList.map((item) => (
-    <Media
-      title={item.snippet.title}
-      channelTitle={item.snippet.channelTitle}
-      description={item.snippet.description}
-      thumbnailURL={item.snippet.thumbnails.high.url}
-      key={item.id.videoId}
-    />
+    <div key={item.id.videoID} onClick={() => handleClick(item.id.videoId)}>
+      <Media
+        title={item.snippet.title}
+        channelTitle={item.snippet.channelTitle}
+        description={item.snippet.description}
+        thumbnailURL={item.snippet.thumbnails.high.url}
+      />
+    </div>
   ));
 }
 
