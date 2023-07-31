@@ -4,7 +4,7 @@ Very basic youtube clone leveraging youtube's API, react, vite, Material UI, and
 
 If you want to use it, first clone the respository
 ```
-git clone https://github.com/Aitbytes/Zoutube-YoutubeClone
+git clone https://github.com/Aitbytes/Zoutube-YoutubeClone.git
 ```
 Install the packages
 ```
