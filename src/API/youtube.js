@@ -1,11 +1,10 @@
 import axios from "axios";
-import "dotenv/config";
 
 export default axios.create({
-  baseURL: "youtube.googleapis.com",
+  baseURL: "https://www.googleapis.com/youtube/v3",
   params: {
     part: "snippet",
     maxResults: 5,
-    key: process.env.APIkey,
+    key: import.meta.env.VITE_APIkey,
   },
 });

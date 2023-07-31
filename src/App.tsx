@@ -1,26 +1,29 @@
 import { useState } from "react";
 import { Grid } from "@mui/material";
 import youtube from "./API/youtube.js";
+import { SearchBar, VideoList, VideoDetails, Video } from "./Components";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [videoList, setVideoList] = useState([]);
+
+  async function handleSubmit(Term: string) {
+    const response = await youtube.get("search", { params: { q: Term } });
+    console.log({ q: Term });
+    setVideoList(response.data.items);
+  }
 
   return (
     <Grid justifyItems={"center"} container spacing={16}>
       <Grid item xs={12}>
-        head
         <Grid container spacing={16}>
           <Grid item xs={12}>
-            {/*Search bar */}
+            <SearchBar onFormSubmit={handleSubmit} />
           </Grid>
-          <Grid className="view" item xs={9}>
-            shouders
+          <Grid className="view" item xs={8}>
+            <VideoDetails />
           </Grid>
-          <Grid className="sideBar" item xs={3}>
-            knees
-          </Grid>
-          <Grid className="footer" item xs={12}>
-            toes
+          <Grid className="sideBar" item xs={4}>
+            <VideoList videoList={videoList} />
           </Grid>
         </Grid>
       </Grid>
