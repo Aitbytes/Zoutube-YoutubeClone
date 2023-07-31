@@ -1,6 +1,6 @@
 # Zoutube-YoutubeClone
 
-VEry basic youtube clone leveraging youtube's API, react, vite, Material UI, and typescript
+Very basic youtube clone leveraging youtube's API, react, vite, Material UI, and typescript
 
 If you want to use it, first clone the respository
 ```
